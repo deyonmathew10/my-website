@@ -1,129 +1,129 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>My First Website</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Profile System</title>
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
 
   <style>
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to right, #667eea, #764ba2);
+      background: linear-gradient(135deg, #667eea, #764ba2);
+    }
+
+    .navbar {
+      padding: 15px;
+      text-align: center;
       color: white;
+      font-size: 22px;
+      font-weight: 600;
+      background: rgba(0,0,0,0.4);
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 60px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0px 10px 25px rgba(0,0,0,0.3);
       text-align: center;
     }
 
-    /* Navbar */
-    .navbar {
-      background: rgba(0,0,0,0.3);
-      padding: 15px;
-      font-size: 20px;
-      font-weight: bold;
+    h2 {
+      margin-bottom: 10px;
     }
 
-    /* Main Container */
-    .container {
-      margin-top: 50px;
-      background: white;
-      color: black;
-      padding: 30px;
-      border-radius: 15px;
-      width: 350px;
-      margin-left: auto;
-      margin-right: auto;
-      box-shadow: 0px 10px 25px rgba(0,0,0,0.3);
-      animation: fadeIn 1s ease-in-out;
+    p {
+      color: #555;
+      font-size: 14px;
     }
 
-    /* Input */
     input {
+      width: 90%;
       padding: 10px;
-      width: 80%;
+      margin-top: 10px;
       border-radius: 8px;
       border: 1px solid #ccc;
     }
 
-    /* Buttons */
     button {
-      padding: 10px 15px;
-      margin-top: 10px;
+      width: 95%;
+      padding: 10px;
+      margin-top: 15px;
       border: none;
       border-radius: 8px;
       background: #667eea;
       color: white;
       cursor: pointer;
-      transition: 0.3s;
+      font-weight: 500;
     }
 
     button:hover {
-      background: #764ba2;
-      transform: scale(1.05);
+      background: #5a67d8;
     }
 
-    /* Output */
     #output {
       margin-top: 15px;
-      font-weight: bold;
+      font-weight: 500;
       color: #333;
     }
 
-    /* Animation */
-    @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(20px);}
-      to {opacity: 1; transform: translateY(0);}
-    }
-
-    /* Footer */
     .footer {
-      margin-top: 50px;
+      text-align: center;
       padding: 10px;
-      font-size: 14px;
-      background: rgba(0,0,0,0.3);
+      color: white;
+      background: rgba(0,0,0,0.4);
+      position: fixed;
+      bottom: 0;
+      width: 100%;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- Navbar -->
   <div class="navbar">
-    🌐 My Website
+    🎓 Student Profile System
   </div>
 
-  <!-- Main Content -->
   <div class="container">
-    <h1>Welcome 👋</h1>
-    <p>This is my deployed static website.</p>
+    <h2>Enter Student Details</h2>
+    <p>This system allows users to submit and view student information.</p>
 
-    <!-- Form -->
-    <form onsubmit="showMessage(event)">
-      <input type="text" id="name" placeholder="Enter your name" required><br><br>
+    <!-- FORM (Functional Requirement) -->
+    <form onsubmit="showProfile(event)">
+      <input type="text" id="name" placeholder="Enter Name" required>
+      <input type="text" id="course" placeholder="Enter Course" required>
+      <input type="text" id="college" placeholder="Enter College" required>
+
       <button type="submit">Submit</button>
     </form>
 
-    <!-- Button -->
-    <button onclick="changeText()">Click Me</button>
-
-    <p id="output"></p>
+    <!-- OUTPUT -->
+    <div id="output"></div>
   </div>
 
-  <!-- Footer -->
   <div class="footer">
-    © 2026 My Website | Created by Student
+    © 2026 Student Profile System
   </div>
 
-  <!-- Script -->
   <script>
-    function showMessage(event) {
+    function showProfile(event) {
       event.preventDefault();
-      let name = document.getElementById("name").value;
-      document.getElementById("output").innerHTML = "✨ Hello, " + name + "!";
-    }
 
-    function changeText() {
-      document.getElementById("output").innerHTML = "🔥 You clicked the button!";
+      let name = document.getElementById("name").value;
+      let course = document.getElementById("course").value;
+      let college = document.getElementById("college").value;
+
+      document.getElementById("output").innerHTML =
+        "<h3>Student Details</h3>" +
+        "Name: " + name + "<br>" +
+        "Course: " + course + "<br>" +
+        "College: " + college;
     }
   </script>
 
